@@ -1,0 +1,80 @@
+<md-dialog aria-label="order">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{currentDate}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                    <md-icon
+                        md-svg-src="img/navigation/svg/production/ic_close_24px.svg"
+                        aria-label="Close dialog">
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <md-input-container flex>
+                <label>Title</label>
+                <input ng-model="order.title">
+            </md-input-container>
+
+            <div ng-if="order.status != 'SERVING'">
+                <section class="item-form"
+                    layout="row">
+                    <md-input-container flex>
+                        <label>Qty</label>
+                        <input type="number" ng-model="item.quantity">
+                    </md-input-container>
+                    <md-input-container flex="75">
+                        <label>Description</label>
+                        <input ng-model="item.description">
+                    </md-input-container>
+                </section>
+
+                <div class="md-actions" layout="row">
+                    <md-button ng-click="addItem()" style="margin-right:20px;">
+                        Add Item
+                    </md-button>
+                </div>
+            </div>
+
+            <section class="order-items">
+                <div class="order-item"
+                    ng-repeat="item in order.items">
+                    <div class="item-label"
+                        layout="row"
+                        layout-align="start center">
+                        <md-checkbox
+                            ng-hide="order.status == 'PENDING'"
+                            ng-disabled="true"
+                            aria-label="Disabled checkbox"
+                            ng-true-value="1"
+                            ng-false-value="0"
+                            ng-model="item.status">
+                        </md-checkbox>
+                        <label>{{item.quantity}}</label>
+                        <label>{{item.description}}</label>
+                        <md-button class="md-icon-button" ng-click="deleteItem()">
+                            <md-icon
+                                md-svg-src="img/navigation/svg/production/ic_close_24px.svg"
+                                aria-label="delete">
+                            </md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </section>
+        </md-dialog-content>
+        <div class="md-actions" layout="row" layout-align="start center">
+            <span name="{{order.status}}" flex>{{order.status}}</span>
+            <md-button ng-click="answer('cancel')">
+                Cancel
+            </md-button>
+            <md-button
+                ng-hide="order.status == 'SERVING'"
+                ng-click="answer('add')"
+                style="margin-right:20px;">
+                Add
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

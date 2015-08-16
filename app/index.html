@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" ng-app="WatsUrItem">
+    <head>
+        <meta charset="utf-8">
+        <title>WatsUrItem</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div ng-view></div>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Firebase -->
+        <script src="//cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+        <!-- AngularFire -->
+        <script src="//cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/api/ApiConfig.js"></script>
+
+        <!-- Facebook login module -->
+        <script src="scripts/facebook-login/module.js"></script>
+        <script src="scripts/facebook-login/FacebookLoginCtrl.js"></script>
+        <script src="scripts/facebook-login/FacebookLoginService.js"></script>
+
+        <!-- Customer module -->
+        <script src="scripts/customer/module.js"></script>
+        <script src="scripts/customer/CustomerCtrl.js"></script>
+        <script src="scripts/customer/CustomerService.js"></script>
+        <script src="scripts/customer/OrderDialogCtrl.js"></script>
+
+        <!-- Watson module -->
+        <script src="scripts/watson/module.js"></script>
+
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "qrcode",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.4",
+    "angular-animate": "1.4.4",
+    "angular-route": "1.4.4",
+    "angular-touch": "1.4.4",
+    "angular-sanitize": "1.4.4",
+    "angular-material": "~0.10.1",
+    "moment": "~2.10.6"
+  },
+  "devDependencies": {}
+}

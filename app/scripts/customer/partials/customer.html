@@ -1,0 +1,108 @@
+<div class="customer-wrapper">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <!-- Profile menu -->
+            <md-menu>
+                <md-button
+                    aria-label="Open demo menu"
+                    class="md-icon-button"
+                    ng-click="$mdOpenMenu($event)">
+                    <img ng-src="{{imageSrc}}" class="md-avatar" alt="{{message.who}}">
+                </md-button>
+                <md-menu-content width="2">
+                    <md-menu-item>
+                        <md-button ng-click="logout()">
+                            <md-icon
+                                md-menu-align-target
+                                md-svg-src="{{exitApp}}">
+                            </md-icon>
+                            Logout
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+
+            <!-- Customer name -->
+            <h2>
+              <span>Hi {{::userData.cachedUserProfile.first_name}}</span>
+            </h2>
+            <span class="logo" flex>
+                <img src="images/watsuritem.png">
+            </span>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content" md-theme="altTheme">
+        <!-- Loader -->
+        <md-progress-circular
+            ng-if="showProgress"
+            class="md-accent"
+            md-mode="indeterminate">
+        </md-progress-circular>
+
+        <!-- Ok items -->
+        <section ng-show="okOrders.length > 0">
+            <md-subheader class="md-primary">Pending</md-subheader>
+            <md-list layout-padding>
+                <md-list-item
+                    class="md-3-line md-whiteframe-z1"
+                    ng-click="editView($event)"
+                    ng-repeat="order in okOrders">
+                    <img ng-src="{{cartIcon}}" class="md-avatar">
+                    <div class="md-list-item-text">
+                        <h3>{{order.title}}</h3>
+                        <h4>{{order.desc}}</h4>
+                        <p>{{order.items.length}} item/s</p>
+                        <p>{{order.dateLabel}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
+
+        <!-- Pending items -->
+        <section ng-show="pendingOrders.length > 0">
+            <md-subheader class="md-primary">Pending</md-subheader>
+            <md-list layout-padding>
+                <md-list-item
+                    class="md-3-line md-whiteframe-z1"
+                    ng-click="editView($event)"
+                    ng-repeat="order in pendingOrders">
+                    <img ng-src="{{cartIcon}}" class="md-avatar">
+                    <div class="md-list-item-text">
+                        <h3>{{order.title}}</h3>
+                        <h4>{{order.desc}}</h4>
+                        <p>{{order.items.length}} item/s</p>
+                        <p>{{order.dateLabel}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
+
+        <!-- Served items -->
+        <section ng-show="servedOrders.length > 0">
+            <md-subheader class="md-warn">Served</md-subheader>
+            <md-list layout="column" layout-padding>
+                <md-list-item
+                    class="md-3-line md-whiteframe-z1"
+                    ng-click="editView($event)"
+                    ng-repeat="message in messages">
+                    <img ng-src="{{cartIcon}}" class="md-avatar">
+                    <div class="md-list-item-text">
+                        <h3>{{order.title}}</h3>
+                        <h4>{{order.desc}}</h4>
+                        <p>{{order.items.length}} item/s</p>
+                        <p>{{order.dateLabel}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
+    </md-content>
+
+    <!-- Add Button -->
+    <md-button
+        ng-click="add($event)"
+        class="md-fab md-primary"
+        aria-label="Add">
+        <md-icon md-svg-src="img/content/svg/production/ic_add_24px.svg"></md-icon>
+    </md-button>
+</div>

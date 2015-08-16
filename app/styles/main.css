@@ -1,0 +1,57 @@
+body{
+    background-color: #4DDEDA;
+}
+.login-wrapper{
+    text-align: center;
+}
+.login-wrapper img{
+    width: 320px;
+}
+.login-wrapper button{
+    padding: 0 15px;
+}
+.customer-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.customer-wrapper md-progress-circular{
+    position: absolute;
+    top: 40%;
+    left: calc(50% - 25px);
+}
+.customer-wrapper .logo{
+    text-align: right;
+}
+.customer-wrapper .logo > img{
+    width: 60px;
+}
+.customer-wrapper .md-subheader{
+    margin-right: 0;
+}
+.customer-wrapper .content{
+    height: calc(100% - 64px);
+    background-color: #EEE;
+}
+.customer-wrapper md-content{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.customer-wrapper md-list-item {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 8px;
+}
+md-list-item .md-list-item-inner > .md-avatar{
+    opacity: 0.5;
+}
+.customer-wrapper button.md-button[aria-label="Add"]{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+md-dialog[aria-label="order"]{
+    min-width: 80%;
+}
