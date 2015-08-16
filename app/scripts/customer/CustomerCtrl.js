@@ -27,6 +27,8 @@ angular.module('customer')
     $scope.cartIcon = 'img/action/svg/production/ic_shopping_cart_24px.svg';
     $scope.exitApp = 'img/action/svg/production/ic_exit_to_app_24px.svg';
     $scope.pendingOrders = [];
+    $scope.okOrders = [];
+    $scope.servedOrders = [];
     $scope.showProgress = true;
 
     function updateList () {
@@ -34,7 +36,9 @@ angular.module('customer')
         .getOrders()
         .then(function (orders) {
             $scope.showProgress = false;
-            $scope.pendingOrders = orders;
+            $scope.pendingOrders = orders.PENDING;
+            $scope.okOrders = orders.OK;
+            $scope.servedOrders = orders.SERVING;
         })
         .catch(function () {
             $scope.showProgress = false;

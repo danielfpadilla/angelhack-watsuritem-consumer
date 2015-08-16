@@ -75,6 +75,12 @@
                 style="margin-right:20px;">
                 Add
             </md-button>
+            <md-button
+                ng-hide="order.status == 'SERVING' || !order.id"
+                ng-click="deleteOrder()"
+                style="margin-right:20px;">
+                Delete
+            </md-button>
         </div>
     </form>
 </md-dialog>

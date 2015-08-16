@@ -21,11 +21,17 @@ angular.module('customer')
         addOrderApi = ApiConfig.baseUrl + 'api/order/',
 
         mapToArray = function (mapOrders) {
-            var orders = [];
+            var orders = {
+                    PENDING: [],
+                    SERVING: [],
+                    OK: []
+                };
 
             angular.forEach(mapOrders, function (value, key) {
                 value.dateLabel = moment(new Date(parseInt(value.date) * 1000)).fromNow();
-                orders.push(value);
+                if (orders[value.status]) {
+                    orders[value.status].push(value);
+                }
             });
 
             return orders;
